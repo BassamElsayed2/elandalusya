@@ -1,0 +1,118 @@
+{
+  "title": "مرحبا بالعالم!",
+  "about": "اذهب إلى صفحة من نحن",
+  "HomePage": {
+    "heroTitle": "مرحبًا بك في Homely!",
+    "servicesTitle": "خدماتنا",
+    "propertiesTitle": "العقارات المتاحة",
+    "featuredTitle": "العروض المميزة",
+    "testimonialTitle": "ماذا يقول عملاؤنا",
+    "blogTitle": "أحدث المقالات",
+    "contactTitle": "تواصل معنا",
+    "faqTitle": "الأسئلة الشائعة",
+    "menu": "القائمة"
+  },
+  "Hero": {
+    "heroTitle": "اعثر على منزل أحلامك",
+    "location": "بالم برينتس, CA",
+    "bedrooms": "4 غرف نوم",
+    "restrooms": "4 حمام",
+    "parkingSpace": "مكان سيارات",
+    "price": "4,750,000 دولار",
+    "sellingPrice": "للسعر المباع",
+    "getInTouch": "تواصل معنا",
+    "viewDetails": "عرض التفاصيل"
+  },
+  "Services": {
+    "categories": "الفئات",
+    "exploreBestProperties": "استكشف أفضل العقارات مع خدمات الخبراء",
+    "discoverPremiumProperties": "اكتشف مجموعة متنوعة من العقارات المميزة، من فلل عالية المستوى إلى شقق سكنية، مصممة لتلبية احتياجاتك",
+    "viewProperties": "عرض العقارات",
+    "residentialHomes": "المنازل السكنية",
+    "experienceElegance": "استمتع بالرقي والراحة بفضل عقاراتنا الفخمة، المصممة للحياة المتطورة.",
+    "luxuryVillas": "فلل عالية المستوى",
+    "appartment": "شقق سكنية",
+    "officeSpaces": "مكاتب"
+  },
+  "Properties": {
+    "properties": "العقارات",
+    "discoverHomes": "اكتشف المنازل المصممة بشكل مثير.",
+    "ComfortUnite": "المنازل المختارة حيث الأناقة والأسلوب والراحة تتجمع."
+  },
+  "FeaturedProperty": {
+    "featuredProperty": "العقار المميز",
+    "modernLuxeVilla": "فلل عالية المستوى",
+    "location": "20 S Aurora Ave, Miami",
+    "experienceLuxuryLiving": "استمتع بالرقي والراحة بفضل عقاراتنا الفخمة، المصممة للحياة المتطورة.",
+    "bedrooms": "4 غرف نوم",
+    "bathrooms": "3 حمامات",
+    "parkingSpace": "مكان سيارات",
+    "barAreas": "2 مكاتب",
+    "discountedPrice": "1,650,500 دولار",
+    "getInTouch": "تواصل معنا",
+    "price": "السعر"
+  },
+  "Testimonial": {
+    "testimonials": "التعليقات",
+    "whatOurClientsSay": "ما يقول عملاؤنا",
+    "loading": "جاري تحميل التعليقات...",
+    "error": "خطأ في تحميل التعليقات",
+    "noTestimonials": "لا توجد تعليقات متاحة",
+    "emilyJohnSmith": {
+      "name": "إيميلي وجون سميث",
+      "review": "وجدت منزل أحلامي في وقت قصير! كانت القوائم مفصلة، والصور دقيقة، والعملية بأكملها كانت سلسة. خدمة العملاء كانت ممتازة، وأجابت على جميع أسئلتي. سأستخدم هذه المنصة مرة أخرى في المستقبل!",
+      "position": "مشتري"
+    },
+    "samMickayJohn": {
+      "name": "سام وميكاي جون",
+      "review": "وجدت منزل أحلامي بسرعة! كانت القوائم شاملة، والصور دقيقة، والعملية بأكملها كانت سلسة. خدمة العملاء كانت متميزة، وأجابت على جميع أسئلتي بسهولة. سأستخدم هذه المنصة مرة أخرى!",
+      "position": "مشتري"
+    }
+  },
+  "Blog": {
+    "blog": "المدونة",
+    "realEstateInsights": "الأخبار العقارية",
+    "stayAheadInThePropertyMarket": "ابق أمام الموضوع مع المشورة الخبيرة والتحديثات",
+    "readAllArticles": "اقرأ جميع المقالات"
+  },
+  "GetInTouch": {
+    "enterARealmWhereExquisiteDesignAndTimelessLuxuryComeTogether": "أدخل عالمًا حيث التصميم الفاخر والثقافة الزمنية تتجمع معًا.",
+    "getInTouch": "تواصل معنا",
+    "getAFreeProperty": "احصل على تقييم عقار مجاني - بيع منزلك بثقة!",
+    "browseThousands": "تصفح آلاف العروض في مواقع مميزة بأسعار مثالية!",
+    "getAFreePropertyValuationSellYourHomeWithConfidence": "احصل على تقييم عقار مجاني - بيع منزلك بثقة!",
+    "browseThousandsOfListingsInPrimeLocationsAtGreatPrices": "تصفح آلاف العروض في مواقع مميزة بأسعار مثالية!"
+  },
+  "FAQs": {
+    "faqs": "الأسئلة الشائعة",
+    "everything": "كل شيء عن المنازل المنزلية",
+    "weKnowThatBuyingSellingOrInvestingInRealEstateCanBeOverwhelmingHereAreSomeFrequentlyAskedQuestionsToHelpGuideYouThroughTheProcess": "نحن نعلم أن شراء أو بيع أو الاستثمار في العقارات يمكن أن يكون مثيرًا. هنا هي بعض الأسئلة الشائعة التي تساعدك على التعرف على العقارات",
+    "canIPersonalize": "هل يمكنني تخصيص منزلي المنزلي؟",
+    "discoverADiverse": "اكتشف مجموعة متنوعة من العقارات المميزة، من فلل عالية المستوى إلى شقق سكنية، مصممة لتلبية احتياجاتك",
+    "whereCan": "أين يمكنني العثور على منازل منزلية؟",
+    "whatSteps": "ما هي الخطوات لشراء منزل منزلي؟"
+  },
+  "Footer": {
+    "stayUpdatedWithTheLatestNewsPromotionsAndExclusiveOffers": "ابق على اطلاع على أحدث الأخبار والترويجات والعروض المميزة",
+    "subscribe": "اشترك",
+    "bySubscribingYouAgreeToReceiveOurPromotionalEmailsYouCanUnsubscribeAtAnyTime": "بالاشتراك، توافق على استقبال رسائل ترويجية منا. يمكنك الإلغاء في أي وقت.",
+    "beginYourPathToSuccessContactUsToday": "ابدأ رحلتك نحو النجاح، اتصل بنا اليوم",
+    "getInTouch": "تواصل معنا",
+    "designedAndDevelopedBy": "تصميم وتطوير بواسطة ENS",
+    "termsOfService": "شروط الخدمة",
+    "privacyPolicy": "سياسة الخصوصية"
+  },
+  "Header": {
+    "menu": "القائمة"
+  },
+  "ContactModal": {
+    "title": "تواصل معنا",
+    "description": "نحن هنا لمساعدتك في العثور على العقار المثالي",
+    "consultant": "مستشار عقاري",
+    "certifiedExpert": "خبير عقاري معتمد",
+    "email": "البريد الإلكتروني",
+    "phoneCall": "اتصال مباشر",
+    "whatsapp": "واتساب",
+    "availabilityNote": "متاح للرد على استفساراتكم من السبت إلى الخميس، من 9 صباحاً إلى 6 مساءً"
+  }
+}

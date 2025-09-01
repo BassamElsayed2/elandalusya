@@ -1,0 +1,118 @@
+{
+  "title": "Hello world!",
+  "about": "Go to the about page",
+  "HomePage": {
+    "heroTitle": "Welcome to Homely!",
+    "servicesTitle": "Our Services",
+    "propertiesTitle": "Available Properties",
+    "featuredTitle": "Featured Listings",
+    "testimonialTitle": "What Our Clients Say",
+    "blogTitle": "Latest Articles",
+    "contactTitle": "Get in Touch",
+    "faqTitle": "Frequently Asked Questions",
+    "menu": "Menu"
+  },
+  "Hero": {
+    "heroTitle": "Find Your Dream Home",
+    "location": "Palm springs, CA",
+    "bedrooms": "4 Bedrooms",
+    "restrooms": "4 Restroom",
+    "parkingSpace": "Parking space",
+    "price": "$4,750,000",
+    "sellingPrice": "For selling price",
+    "getInTouch": "Get in Touch",
+    "viewDetails": "View Details"
+  },
+  "Services": {
+    "categories": "Categories",
+    "exploreBestProperties": "Explore best properties with expert services.",
+    "discoverPremiumProperties": "Discover a diverse range of premium properties, from luxurious apartments  to spacious villas, tailored to your needs",
+    "viewProperties": "View properties",
+    "residentialHomes": "Residential Homes",
+    "experienceElegance": "Experience elegance and comfort with our exclusive luxury villas, designed  for sophisticated living.",
+    "luxuryVillas": "Luxury villas",
+    "appartment": "Appartment",
+    "officeSpaces": "Office Spaces"
+  },
+  "Properties": {
+    "properties": "Properties",
+    "discoverHomes": "Discover inspiring designed homes.",
+    "ComfortUnite": "Curated homes where elegance, style, and comfort unite."
+  },
+  "FeaturedProperty": {
+    "featuredProperty": "Featured property",
+    "modernLuxeVilla": "Modern luxe villa",
+    "location": "20 S Aurora Ave, Miami",
+    "experienceLuxuryLiving": "Experience luxury living at modern luxe villa, located at 20 S Aurora Ave, Miami. Priced at $1,650,500, this 560 ft² smart home offers 4 bedrooms, 3 bathrooms, and spacious living areas. Enjoy energy efficiency, natural light, security systems, outdoor spaces, and 2 bar areas—perfect for 8+ guests. Built in 2025.",
+    "bedrooms": "4 Bedrooms",
+    "bathrooms": "3 Bathrooms",
+    "parkingSpace": "Parking Space",
+    "barAreas": "2 Bar areas",
+    "discountedPrice": "$1,650,500",
+    "getInTouch": "Get In Touch",
+    "price": "Price"
+  },
+  "Testimonial": {
+    "testimonials": "Testimonials",
+    "whatOurClientsSay": "What Our Clients Say",
+    "loading": "Loading testimonials...",
+    "error": "Error loading testimonials",
+    "noTestimonials": "No testimonials available",
+    "emilyJohnSmith": {
+      "name": "Emily & John Smith",
+      "review": "I found my ideal home in no time! The listings were detailed, the photos were accurate, and the whole process felt seamless. Customer service was top-notch, answering all my questions. I will definitely use this platform again in the future!",
+      "position": "Buyer"
+    },
+    "samMickayJohn": {
+      "name": "Sam & Mickay John",
+      "review": "I quickly found my dream home! The listings were thorough, the photos were spot-on, and the entire process was smooth. The customer service was outstanding, addressing all my questions with ease. I'll definitely use this platform again!",
+      "position": "Buyer"
+    }
+  },
+  "Blog": {
+    "blog": "Blog",
+    "realEstateInsights": "Real estate insights",
+    "stayAheadInThePropertyMarket": "Stay ahead in the property market with expert advice and updates",
+    "readAllArticles": "Read all articles"
+  },
+  "GetInTouch": {
+    "enterARealmWhereExquisiteDesignAndTimelessLuxuryComeTogether": "Enter a realm where exquisite design and timeless luxury come together.",
+    "getInTouch": "Get In Touch",
+    "getAFreeProperty": "GET A FREE PROPERTY VALUATION—SELL YOUR HOME WITH CONFIDENCE!",
+    "browseThousands": "BROWSE THOUSANDS OF LISTINGS IN PRIME LOCATIONS AT GREAT PRICES!",
+    "getAFreePropertyValuationSellYourHomeWithConfidence": "GET A FREE PROPERTY VALUATION—SELL YOUR HOME WITH CONFIDENCE!",
+    "browseThousandsOfListingsInPrimeLocationsAtGreatPrices": "BROWSE THOUSANDS OF LISTINGS IN PRIME LOCATIONS AT GREAT PRICES!"
+  },
+  "FAQs": {
+    "faqs": "FAQs",
+    "everything": "Everything about Homely homes",
+    "weKnowThatBuyingSellingOrInvestingInRealEstateCanBeOverwhelmingHereAreSomeFrequentlyAskedQuestionsToHelpGuideYouThroughTheProcess": "We know that buying, selling, or investing in real estate can be overwhelming. Here are some frequently asked questions to help guide you through the process",
+    "canIPersonalize": "Can I personalize my homely home?",
+    "discoverADiverse": "Discover a diverse range of premium properties, from luxurious apartments to spacious villas, tailored to your needs.",
+    "whereCan": "Where can I find homely homes?",
+    "whatSteps": "What steps to buy a homely?"
+  },
+  "Footer": {
+    "stayUpdatedWithTheLatestNewsPromotionsAndExclusiveOffers": "Stay updated with the latest news, promotions, and exclusive offers.",
+    "subscribe": "Subscribe",
+    "bySubscribingYouAgreeToReceiveOurPromotionalEmailsYouCanUnsubscribeAtAnyTime": "By subscribing, you agree to receive our promotional emails. You can unsubscribe  at any time.",
+    "beginYourPathToSuccessContactUsToday": "Begin your path to success contact us today.",
+    "getInTouch": "Get In Touch",
+    "designedAndDevelopedBy": "Designed & Developed by ENS",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "Header": {
+    "menu": "Menu"
+  },
+  "ContactModal": {
+    "title": "Contact Us",
+    "description": "We are here to help you find the perfect property",
+    "consultant": "Real Estate Consultant",
+    "certifiedExpert": "Certified Real Estate Expert",
+    "email": "Email",
+    "phoneCall": "Phone Call",
+    "whatsapp": "WhatsApp",
+    "availabilityNote": "Available to answer your inquiries from Saturday to Thursday, 9 AM to 6 PM"
+  }
+}
