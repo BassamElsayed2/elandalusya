@@ -2,7 +2,7 @@
   "title": "Hello world!",
   "about": "Go to the about page",
   "HomePage": {
-    "heroTitle": "Welcome to Homely!",
+    "heroTitle": "Welcome to Al-Andalusia Real Estate!",
     "servicesTitle": "Our Services",
     "propertiesTitle": "Available Properties",
     "featuredTitle": "Featured Listings",
@@ -85,12 +85,12 @@
   },
   "FAQs": {
     "faqs": "FAQs",
-    "everything": "Everything about Homely homes",
+    "everything": "Everything about Al-Andalusia Real Estate",
     "weKnowThatBuyingSellingOrInvestingInRealEstateCanBeOverwhelmingHereAreSomeFrequentlyAskedQuestionsToHelpGuideYouThroughTheProcess": "We know that buying, selling, or investing in real estate can be overwhelming. Here are some frequently asked questions to help guide you through the process",
-    "canIPersonalize": "Can I personalize my homely home?",
+    "canIPersonalize": "Can I personalize my Al-Andalusia property?",
     "discoverADiverse": "Discover a diverse range of premium properties, from luxurious apartments to spacious villas, tailored to your needs.",
-    "whereCan": "Where can I find homely homes?",
-    "whatSteps": "What steps to buy a homely?"
+    "whereCan": "Where can I find Al-Andalusia properties?",
+    "whatSteps": "What steps to buy with Al-Andalusia?"
   },
   "Footer": {
     "stayUpdatedWithTheLatestNewsPromotionsAndExclusiveOffers": "Stay updated with the latest news, promotions, and exclusive offers.",

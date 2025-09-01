@@ -3,7 +3,7 @@ import PropertiesListing from "@/components/Properties/PropertyList";
 import React from "react";
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Property List | Homely",
+  title: "Property List | الاندلوسية للعقارات",
 };
 
 const page = () => {
