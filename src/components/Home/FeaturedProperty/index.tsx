@@ -90,14 +90,14 @@ const FeaturedProperty: React.FC = () => {
           </div>
           <div className={`flex flex-col gap-10 `}>
             <div>
-              <p className="text-dark/75 dark:text-white/75 text-base font-semibold flex gap-2">
+              <p className="text-dark/75 dark:text-white/75 text-[13px] font-semibold flex gap-2">
                 <Icon
                   icon="ph:house-simple-fill"
                   className="text-2xl text-primary "
                 />
                 {t("featuredProperty")}
               </p>
-              <h2 className="lg:text-[30px] text-[20px] font-medium text-dark dark:text-white">
+              <h2 className="lg:text-[30px] text-[18px] font-medium text-dark dark:text-white">
                 {locale === "ar" ? properties?.name_ar : properties?.name_en}
               </h2>
               <div className="flex items-center gap-2.5">
@@ -107,7 +107,7 @@ const FeaturedProperty: React.FC = () => {
                   height={26}
                   className="text-dark/50 dark:text-white/50"
                 />
-                <p className="text-dark/50 dark:text-white/50 text-base">
+                <p className="text-dark/50 dark:text-white/50 text-[13px]">
                   {locale === "ar"
                     ? properties?.address_ar
                     : properties?.address_en}
@@ -116,7 +116,7 @@ const FeaturedProperty: React.FC = () => {
             </div>
 
             <div
-              className="text-base text-dark/50 dark:text-white/50 force-font"
+              className="text-[13px] text-dark/50 dark:text-white/50 force-font"
               dangerouslySetInnerHTML={{
                 __html:
                   (locale === "en"
@@ -182,15 +182,15 @@ const FeaturedProperty: React.FC = () => {
             <div className={`flex gap-10 `}>
               <Link
                 href={`/${locale}/properties/${properties?.id}`}
-                className="py-4 px-8 bg-primary hover:bg-dark duration-300 rounded-full text-white"
+                className="py-4 px-8 bg-primary hover:bg-primary duration-300 rounded-full text-white"
               >
                 {locale === "ar" ? "تفاصيل" : "Details"}
               </Link>
               <div>
-                <h4 className="text-3xl text-dark dark:text-white font-medium">
+                <h4 className="text-[18px] text-dark dark:text-white font-medium">
                   {properties?.price} {locale === "ar" ? "ج.م" : "EG"}
                 </h4>
-                <p className="text-base text-dark/50">
+                <p className="text-[13px] text-dark/50">
                   {locale === "ar" ? "سعر" : "Price"}
                 </p>
               </div>

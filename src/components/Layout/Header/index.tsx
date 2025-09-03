@@ -68,7 +68,7 @@ const Header: React.FC = () => {
       <nav
         className={`container mx-auto max-w-8xl flex items-center justify-between py-4 duration-300 ${
           sticky
-            ? "shadow-lg bg-white dark:bg-dark rounded-full top-5 px-4 "
+            ? "shadow-lg bg-[#121C59] dark:bg-dark rounded-full top-5 px-4 "
             : "shadow-none top-0"
         }`}
       >
@@ -120,9 +120,9 @@ const Header: React.FC = () => {
               className={`px-3 py-2 rounded-full text-sm font-medium border transition-colors ${
                 isHomepage
                   ? sticky
-                    ? "text-dark dark:text-white border-dark dark:border-white hover:bg-dark hover:text-white dark:hover:bg-white dark:hover:text-dark"
+                    ? "text-primary dark:text-white border-primary dark:border-white hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-dark"
                     : "text-white border-white hover:bg-white hover:text-dark"
-                  : "text-dark dark:text-white border-dark dark:border-white hover:bg-dark hover:text-white dark:hover:bg-white dark:hover:text-dark"
+                  : "text-primary dark:text-white border-primary dark:border-white hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-dark"
               }`}
             >
               {isArabic ? "EN" : "AR "}
@@ -138,9 +138,9 @@ const Header: React.FC = () => {
                 className={`text-base text-inherit flex items-center gap-2 ${
                   isHomepage
                     ? sticky
-                      ? "text-dark dark:text-white hover:text-primary border-dark dark:border-white"
-                      : "text-white hover:text-primary"
-                    : "text-dark hover:text-primary"
+                      ? "text-primary dark:text-white hover:text-primary border-primary dark:border-white"
+                      : "text-primary hover:text-white"
+                    : "text-primary hover:text-white"
                 }`}
               >
                 <Icon icon={"ph:phone-bold"} width={24} height={24} />
@@ -153,7 +153,7 @@ const Header: React.FC = () => {
                 className={`headermenu flex items-center gap-3 p-2 sm:px-5 sm:py-3 rounded-full font-semibold hover:cursor-pointer border ${
                   isHomepage
                     ? sticky
-                      ? "text-white bg-dark dark:bg-white dark:text-dark dark:hover:text-white dark:hover:bg-dark hover:text-dark hover:bg-white border-dark dark:border-white"
+                      ? "text-white bg-[#F0A218] dark:bg-white dark:text-dark dark:hover:text-white dark:hover:bg-dark hover:text-dark hover:bg-primary border-[#F0A218] dark:border-white"
                       : "text-dark bg-white dark:text-dark hover:bg-transparent hover:text-white border-white"
                     : "bg-dark text-white hover:bg-transparent hover:text-dark dark:bg-white dark:text-dark dark:hover:bg-transparent dark:hover:text-white duration-300"
                 }`}

@@ -88,7 +88,7 @@ const SearchFilters: React.FC<SearchFiltersProps> = ({
   };
 
   return (
-    <div className="bg-white/95 dark:bg-gray-900/95 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 p-6 mb-8 backdrop-blur-md">
+    <div className="bg-white/15 dark:bg-gray-900/95 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 p-6 mb-8 backdrop-blur-md">
       {/* Main Search Bar */}
       <div className="flex flex-col lg:flex-row gap-4 mb-6">
         <div className="flex-1 relative group">
@@ -115,7 +115,7 @@ const SearchFilters: React.FC<SearchFiltersProps> = ({
         <Button
           onClick={handleSearch}
           disabled={isLoading}
-          className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-medium transition-all duration-200 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-[#F0A218] hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-medium transition-all duration-200 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? (
             <Icon

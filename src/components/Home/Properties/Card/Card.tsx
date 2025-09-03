@@ -53,16 +53,16 @@ const PropertyCard: React.FC<{ item: PropertyHomes }> = ({ item }) => {
           >
             <div>
               <Link href={`/properties/${item.id}`}>
-                <h3 className="text-xl font-medium text-black dark:text-white duration-300 group-hover:text-primary">
+                <h3 className="text-[18px] font-medium text-black dark:text-white duration-300 group-hover:text-primary">
                   {locale === "ar" ? item.name_ar : item.name_en}
                 </h3>
               </Link>
-              <p className="text-base font-normal text-black/50 dark:text-white/50">
+              <p className="text-[13px] font-normal text-black/50 dark:text-white/50">
                 {locale === "ar" ? item.address_ar : item.address_en}
               </p>
             </div>
             <div>
-              <button className="text-base font-normal text-primary px-5 py-2 rounded-full bg-primary/10">
+              <button className="text-[13px] font-normal text-primary px-5 py-2 rounded-full bg-primary/10">
                 {item.price} {locale === "ar" ? "ج.م" : "EG"}
               </button>
             </div>
@@ -76,7 +76,7 @@ const PropertyCard: React.FC<{ item: PropertyHomes }> = ({ item }) => {
               }`}
             >
               <Icon icon={"solar:bed-linear"} width={20} height={20} />
-              <p className="text-sm mobile:text-base font-normal text-black dark:text-white text-center">
+              <p className="text-[13px] mobile:text-[13px] font-normal text-black dark:text-white text-center">
                 {item.bedrooms} {locale === "ar" ? "غرف نوم" : "Bedrooms"}
               </p>
             </div>
@@ -88,7 +88,7 @@ const PropertyCard: React.FC<{ item: PropertyHomes }> = ({ item }) => {
               }`}
             >
               <Icon icon={"solar:bath-linear"} width={20} height={20} />
-              <p className="text-sm mobile:text-base font-normal text-black dark:text-white text-center">
+              <p className="text-[13px] mobile:text-[13px] font-normal text-black dark:text-white text-center">
                 {item.bathrooms} {locale === "ar" ? "حمامات" : "Bathrooms"}
               </p>
             </div>
@@ -104,7 +104,7 @@ const PropertyCard: React.FC<{ item: PropertyHomes }> = ({ item }) => {
                 width={20}
                 height={20}
               />
-              <p className="text-sm mobile:text-base font-normal text-black dark:text-white text-center">
+              <p className="text-[13px] mobile:text-[13px] font-normal text-black dark:text-white text-center">
                 {item.area}m<sup>2</sup>
               </p>
             </div>

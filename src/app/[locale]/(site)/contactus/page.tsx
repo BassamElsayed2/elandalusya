@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import { useLocale } from "next-intl";
 
 export const metadata: Metadata = {
-  title: "Contact Us | الاندلوسية للعقارات",
+  title: "Contact Us | Homely",
 };
 
 export default function ContactUs() {
