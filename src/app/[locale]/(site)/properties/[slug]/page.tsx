@@ -10,6 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getPropertyById } from "@/components/Home/Services/apiProperties";
 import ContactModal from "@/components/shared/ContactModal";
 import { useContactModal } from "@/hooks/useContactModal";
+import ImageGallery from "@/components/shared/ImageGallery";
 
 export default function Details() {
   const { slug } = useParams();
@@ -78,58 +79,16 @@ export default function Details() {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-12 mt-8 gap-8">
-          <div className="lg:col-span-8 col-span-12 row-span-2">
-            {properite?.images && properite?.images[0] && (
-              <div className="">
-                <Image
-                  src={properite.images[0]}
-                  alt="Main Property Image"
-                  width={400}
-                  height={500}
-                  className="rounded-2xl w-full h-540"
-                  unoptimized={true}
-                />
-              </div>
-            )}
-          </div>
-          <div className="lg:col-span-4 lg:block hidden">
-            {properite?.images && properite?.images[1] && (
-              <Image
-                src={properite.images[1]}
-                alt="Property Image 2"
-                width={400}
-                height={500}
-                className="rounded-2xl w-full h-full"
-                unoptimized={true}
-              />
-            )}
-          </div>
-          <div className="lg:col-span-2 col-span-6">
-            {properite?.images && properite?.images[2] && (
-              <Image
-                src={properite.images[2]}
-                alt="Property Image 3"
-                width={400}
-                height={500}
-                className="rounded-2xl w-full h-full"
-                unoptimized={true}
-              />
-            )}
-          </div>
-          <div className="lg:col-span-2 col-span-6">
-            {properite?.images && properite?.images[3] && (
-              <Image
-                src={properite.images[3]}
-                alt="Property Image 4"
-                width={400}
-                height={500}
-                className="rounded-2xl w-full h-full"
-                unoptimized={true}
-              />
-            )}
-          </div>
-        </div>
+        {properite?.images && properite.images.length > 0 && (
+          <ImageGallery
+            images={properite.images}
+            alt={
+              locale === "ar"
+                ? properite?.name_ar || "صورة العقار"
+                : properite?.name_en || "Property Image"
+            }
+          />
+        )}
         <div className="grid grid-cols-12 gap-8 mt-10">
           <div className="lg:col-span-8 col-span-12">
             <h3 className="text-3xl font-medium mb-10">
@@ -237,7 +196,7 @@ export default function Details() {
 
             <iframe
               src={
-                "https://www.google.com/maps?q=30.789214751799687, 30.990236173645165&z=15&output=embed"
+                properite?.map_url ? `${properite.map_url}&output=embed` : ""
               }
               width="1114"
               height="400"
