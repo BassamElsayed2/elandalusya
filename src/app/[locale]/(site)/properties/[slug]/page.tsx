@@ -28,6 +28,12 @@ export default function Details() {
     enabled: !!slug,
   });
 
+  // Debug: Check if images exist
+  console.log("Property data:", properite);
+  console.log("Images:", properite?.images);
+  console.log("Images length:", properite?.images?.length);
+  console.log("Images type:", typeof properite?.images);
+
   return (
     <section className="!pt-44 pb-20 relative">
       <div className="container mx-auto max-w-8xl px-5 2xl:px-0">
@@ -79,15 +85,30 @@ export default function Details() {
             </div>
           </div>
         </div>
-        {properite?.images && properite.images.length > 0 && (
+        {properite?.images &&
+        (Array.isArray(properite.images)
+          ? properite.images.length > 0
+          : properite.images) ? (
           <ImageGallery
-            images={properite.images}
+            images={
+              Array.isArray(properite.images)
+                ? properite.images
+                : [properite.images]
+            }
             alt={
               locale === "ar"
                 ? properite?.name_ar || "صورة العقار"
                 : properite?.name_en || "Property Image"
             }
           />
+        ) : (
+          <div className="mt-8">
+            <div className="bg-gray-200 dark:bg-gray-700 rounded-2xl h-64 flex items-center justify-center">
+              <p className="text-gray-500 dark:text-gray-400">
+                {locale === "ar" ? "لا توجد صور متاحة" : "No images available"}
+              </p>
+            </div>
+          </div>
         )}
         <div className="grid grid-cols-12 gap-8 mt-10">
           <div className="lg:col-span-8 col-span-12">
@@ -208,8 +229,13 @@ export default function Details() {
           <div className="lg:col-span-4 col-span-12">
             <div className="bg-primary/10 p-8 rounded-2xl relative z-10 overflow-hidden">
               <h4 className="text-dark text-3xl font-medium dark:text-white">
-                {properite?.price}
+                {properite?.price?.toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "EGP",
+                  maximumFractionDigits: 0,
+                })}
               </h4>
+
               <p className="text-sm text-dark/50 dark:text-white">
                 {locale === "ar" ? "السعر" : "Price"}
               </p>

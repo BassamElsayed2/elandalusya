@@ -88,7 +88,7 @@ const ContactModal: React.FC<ContactModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700">
+      <DialogContent className="sm:max-w-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 max-h-[90vh] overflow-y-auto mx-4">
         <DialogHeader className="text-center">
           <DialogTitle
             className={`text-2xl font-bold text-gray-900 dark:text-white ${
@@ -237,7 +237,7 @@ const ContactModal: React.FC<ContactModalProps> = ({
           </div>
 
           {/* ملاحظة إضافية */}
-          <div className="w-full bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-700">
+          {/* <div className="w-full bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-700">
             <div className="flex items-start space-x-3">
               <Icon
                 icon="ph:info-fill"
@@ -253,7 +253,7 @@ const ContactModal: React.FC<ContactModalProps> = ({
                   : "Available to answer your inquiries from Saturday to Thursday, 9 AM to 6 PM"}
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </DialogContent>
     </Dialog>

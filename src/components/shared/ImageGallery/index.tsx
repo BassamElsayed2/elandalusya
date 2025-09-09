@@ -29,85 +29,143 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, alt }) => {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  const remainingImages = images.length - 3;
+  const remainingImages = images.length - 4; // Total images - main image - 3 side images
 
   return (
     <>
-      <div className="grid grid-cols-12 mt-8 gap-8">
+      <div className="grid grid-cols-12 mt-8 gap-4 lg:gap-8">
         {/* Main large image */}
-        <div className="lg:col-span-8 col-span-12 row-span-2">
+        <div className="lg:col-span-8 col-span-12">
           {images[0] && (
             <div className="cursor-pointer" onClick={() => openPopup(0)}>
               <Image
                 src={images[0]}
                 alt={`${alt} - Main Image`}
                 width={400}
-                height={500}
-                className="rounded-2xl w-full h-540 object-cover"
+                height={300}
+                className="rounded-2xl w-full h-64 sm:h-80 lg:h-96 object-cover"
                 unoptimized={true}
               />
             </div>
           )}
         </div>
 
-        {/* Second image */}
-        <div className="lg:col-span-4 lg:block hidden">
-          {images[1] && (
-            <div className="cursor-pointer h-full" onClick={() => openPopup(1)}>
-              <Image
-                src={images[1]}
-                alt={`${alt} - Image 2`}
-                width={400}
-                height={500}
-                className="rounded-2xl w-full h-260 object-cover"
-                unoptimized={true}
-              />
-            </div>
-          )}
-        </div>
+        {/* Side images container */}
+        <div className="lg:col-span-4 col-span-12">
+          <div className="grid grid-cols-1 gap-4 h-full">
+            {/* First side image */}
+            {images[1] && (
+              <div className="cursor-pointer" onClick={() => openPopup(1)}>
+                <Image
+                  src={images[1]}
+                  alt={`${alt} - Image 2`}
+                  width={400}
+                  height={300}
+                  className="rounded-2xl w-full h-32 sm:h-36 lg:h-48 object-cover"
+                  unoptimized={true}
+                />
+              </div>
+            )}
 
-        {/* Third image */}
-        <div className="lg:col-span-2 col-span-6">
-          {images[2] && (
-            <div
-              className="cursor-pointer relative h-full"
-              onClick={() => openPopup(images.length > 3 ? 2 : 2)}
-            >
-              <Image
-                src={images[2]}
-                alt={`${alt} - Image 3`}
-                width={400}
-                height={500}
-                className="rounded-2xl w-full h-260 object-cover"
-                unoptimized={true}
-              />
-              {/* Overlay for remaining images */}
-              {images.length > 3 && (
-                <div className="absolute inset-0 bg-black bg-opacity-60 rounded-2xl flex items-center justify-center">
-                  <span className="text-white text-2xl font-semibold">
-                    +{remainingImages}
-                  </span>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
+            {/* Second side image */}
+            {images[2] && (
+              <div className="cursor-pointer" onClick={() => openPopup(2)}>
+                <Image
+                  src={images[2]}
+                  alt={`${alt} - Image 3`}
+                  width={400}
+                  height={300}
+                  className="rounded-2xl w-full h-32 sm:h-36 lg:h-48 object-cover"
+                  unoptimized={true}
+                />
+              </div>
+            )}
 
-        {/* Fourth image */}
-        <div className="lg:col-span-2 col-span-6">
-          {images[3] && images.length <= 3 && (
-            <div className="cursor-pointer h-full" onClick={() => openPopup(3)}>
-              <Image
-                src={images[3]}
-                alt={`${alt} - Image 4`}
-                width={400}
-                height={500}
-                className="rounded-2xl w-full h-260 object-cover"
-                unoptimized={true}
-              />
-            </div>
-          )}
+            {/* Third side image with overlay */}
+            {images[3] && (
+              <div
+                className="cursor-pointer relative"
+                onClick={() => openPopup(3)}
+              >
+                <Image
+                  src={images[3]}
+                  alt={`${alt} - Image 4`}
+                  width={400}
+                  height={300}
+                  className="rounded-2xl w-full h-32 sm:h-36 lg:h-48 object-cover"
+                  unoptimized={true}
+                />
+                {/* Overlay for remaining images */}
+                {images.length > 4 && (
+                  <div
+                    className="absolute inset-0 bg-black bg-opacity-60 rounded-2xl flex items-center justify-center cursor-pointer"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openPopup(3);
+                    }}
+                  >
+                    <span className="text-white text-lg sm:text-xl lg:text-2xl font-semibold">
+                      +{remainingImages}
+                    </span>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
         </div>
+      </div>
+
+      {/* Mobile images row */}
+      <div className="lg:hidden grid grid-cols-3 gap-4 mt-4">
+        {images[1] && (
+          <div className="cursor-pointer" onClick={() => openPopup(1)}>
+            <Image
+              src={images[1]}
+              alt={`${alt} - Image 2`}
+              width={400}
+              height={300}
+              className="rounded-2xl w-full h-24 object-cover"
+              unoptimized={true}
+            />
+          </div>
+        )}
+        {images[2] && (
+          <div className="cursor-pointer" onClick={() => openPopup(2)}>
+            <Image
+              src={images[2]}
+              alt={`${alt} - Image 3`}
+              width={400}
+              height={300}
+              className="rounded-2xl w-full h-24 object-cover"
+              unoptimized={true}
+            />
+          </div>
+        )}
+        {images[3] && (
+          <div className="cursor-pointer relative" onClick={() => openPopup(3)}>
+            <Image
+              src={images[3]}
+              alt={`${alt} - Image 4`}
+              width={400}
+              height={300}
+              className="rounded-2xl w-full h-24 object-cover"
+              unoptimized={true}
+            />
+            {images.length > 4 && (
+              <div
+                className="absolute inset-0 bg-black bg-opacity-60 rounded-2xl flex items-center justify-center cursor-pointer"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  openPopup(3);
+                }}
+              >
+                <span className="text-white text-sm font-semibold">
+                  +{remainingImages}
+                </span>
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Popup Modal */}

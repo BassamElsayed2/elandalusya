@@ -71,9 +71,12 @@ const Hero: React.FC = () => {
             muted
             loop
             playsInline
+            preload="auto"
+            poster="/images/hero/poster.jpg" // صورة fallback لو الفيديو مش اشتغل
             className="w-full h-full object-cover"
           >
             <source src="/videos/real-estate.mp4" type="video/mp4" />
+            <source src="/videos/real-estate.webm" type="video/webm" />
             Your browser does not support the video tag.
           </video>
         </div>
