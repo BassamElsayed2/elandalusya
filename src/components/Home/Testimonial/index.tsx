@@ -70,16 +70,9 @@ const Testimonial = () => {
     );
   }
 
-  if (!testimonial || testimonial.length === 0) {
-    return (
-      <section className="bg-dark relative overflow-hidden" id="testimonial">
-        <div className="container max-w-8xl mx-auto px-5 2xl:px-0 py-20">
-          <div className="flex items-center justify-center">
-            <div className="text-white text-lg">{t("noTestimonials")}</div>
-          </div>
-        </div>
-      </section>
-    );
+  // إخفاء القسم إذا كان عدد الشهادات أقل من 1
+  if (!testimonial || testimonial.length < 1) {
+    return null;
   }
 
   return (

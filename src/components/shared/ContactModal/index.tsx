@@ -11,19 +11,12 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-
-interface RealtorData {
-  id: string;
-  name: string;
-  number: string;
-  email: string;
-  image: string;
-}
+import { MainRealtor } from "@/hooks/useMainRealtor";
 
 interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
-  realtorData?: RealtorData | null;
+  realtorData?: MainRealtor | null;
 }
 
 const ContactModal: React.FC<ContactModalProps> = ({
@@ -88,7 +81,7 @@ const ContactModal: React.FC<ContactModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 max-h-[90vh] overflow-y-auto mx-4">
+      <DialogContent className="sm:max-w-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 max-h-[90vh] overflow-y-auto">
         <DialogHeader className="text-center">
           <DialogTitle
             className={`text-2xl font-bold text-gray-900 dark:text-white ${

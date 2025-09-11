@@ -42,6 +42,11 @@ const BlogSmall: React.FC = () => {
     queryFn: getBlog,
   });
 
+  // إخفاء القسم إذا كان عدد المدونات أقل من 1
+  if (!blog || blog.length < 1) {
+    return null;
+  }
+
   return (
     <section>
       <div className="container max-w-8xl mx-auto px-5 2xl:px-0">

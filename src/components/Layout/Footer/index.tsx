@@ -6,12 +6,31 @@ import { FooterLinks } from "@/app/api/footerlinks";
 import { useTranslations, useLocale } from "next-intl";
 import ContactModal from "@/components/shared/ContactModal";
 import { useContactModal } from "@/hooks/useContactModal";
+import { useMainRealtor } from "@/hooks/useMainRealtor";
+import { useEffect, useState } from "react";
+import { getContacts } from "@/components/Home/Services/apiContacts";
+import { Contact } from "@/types/contact";
 
 const Footer = () => {
   const t = useTranslations("Footer");
   const locale = useLocale();
   const isArabic = locale === "ar";
   const { isOpen, openModal, closeModal } = useContactModal();
+  const { mainRealtor } = useMainRealtor();
+  const [contacts, setContacts] = useState<Contact[]>([]);
+
+  useEffect(() => {
+    const fetchContacts = async () => {
+      try {
+        const data = await getContacts();
+        setContacts(data);
+      } catch (error) {
+        console.error("Error fetching contacts:", error);
+      }
+    };
+
+    fetchContacts();
+  }, []);
 
   return (
     <footer className="relative z-10 bg-dark">
@@ -54,30 +73,48 @@ const Footer = () => {
               isArabic ? "flex-row-reverse" : ""
             }`}
           >
-            <Link href="#">
-              <Icon
-                icon="ph:x-logo-bold"
-                width={24}
-                height={24}
-                className="text-white hover:text-primary duration-300"
-              />
-            </Link>
-            <Link href="#">
-              <Icon
-                icon="ph:facebook-logo-bold"
-                width={24}
-                height={24}
-                className="text-white hover:text-primary duration-300"
-              />
-            </Link>
-            <Link href="#">
-              <Icon
-                icon="ph:instagram-logo-bold"
-                width={24}
-                height={24}
-                className="text-white hover:text-primary duration-300"
-              />
-            </Link>
+            {contacts.length > 0 && contacts[0].twitter_url && (
+              <Link
+                href={contacts[0].twitter_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon
+                  icon="ph:x-logo-bold"
+                  width={24}
+                  height={24}
+                  className="text-white hover:text-primary duration-300"
+                />
+              </Link>
+            )}
+            {contacts.length > 0 && contacts[0].facebook_url && (
+              <Link
+                href={contacts[0].facebook_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon
+                  icon="ph:facebook-logo-bold"
+                  width={24}
+                  height={24}
+                  className="text-white hover:text-primary duration-300"
+                />
+              </Link>
+            )}
+            {contacts.length > 0 && contacts[0].instagram_url && (
+              <Link
+                href={contacts[0].instagram_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon
+                  icon="ph:instagram-logo-bold"
+                  width={24}
+                  height={24}
+                  className="text-white hover:text-primary duration-300"
+                />
+              </Link>
+            )}
           </div>
         </div>
         <div className="py-16 border-b border-white/10 text-center md:text-start">
@@ -86,12 +123,14 @@ const Footer = () => {
               <h2 className="text-white leading-[1.2] text-[30px] font-medium mb-6 lg:max-w-3/4">
                 {t("beginYourPathToSuccessContactUsToday")}
               </h2>
-              <button
-                onClick={openModal}
-                className="bg-primary text-base font-semibold py-4 px-8 rounded-full text-white hover:bg-white hover:text-dark duration-300 hover:cursor-pointer"
-              >
-                {t("getInTouch")}
-              </button>
+              {mainRealtor && (
+                <button
+                  onClick={openModal}
+                  className="bg-primary text-base font-semibold py-4 px-8 rounded-full text-white hover:bg-white hover:text-dark duration-300 hover:cursor-pointer"
+                >
+                  {t("getInTouch")}
+                </button>
+              )}
             </div>
             <div className="md:col-span-3 sm:col-span-6 col-span-12 ">
               <div className="flex flex-col gap-4 md:w-fit w-full text-center md:text-start">
@@ -158,7 +197,11 @@ const Footer = () => {
       </div>
 
       {/* Contact Modal */}
-      <ContactModal isOpen={isOpen} onClose={closeModal} realtorData={null} />
+      <ContactModal
+        isOpen={isOpen}
+        onClose={closeModal}
+        realtorData={mainRealtor}
+      />
     </footer>
   );
 };

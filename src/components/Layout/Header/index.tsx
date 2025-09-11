@@ -8,11 +8,14 @@ import { useTheme } from "next-themes";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { getContacts } from "@/components/Home/Services/apiContacts";
+import { Contact } from "@/types/contact";
 
 const Header: React.FC = () => {
   const t = useTranslations("Header");
   const [sticky, setSticky] = useState(false);
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [contacts, setContacts] = useState<Contact[]>([]);
   useTheme();
   const pathname = usePathname();
   const router = useRouter();
@@ -56,6 +59,19 @@ const Header: React.FC = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [handleScroll]);
+
+  useEffect(() => {
+    const fetchContacts = async () => {
+      try {
+        const data = await getContacts();
+        setContacts(data);
+      } catch (error) {
+        console.error("Error fetching contacts:", error);
+      }
+    };
+
+    fetchContacts();
+  }, []);
 
   const isHomepage = pathname === "/en" || pathname === "/ar";
 
@@ -235,18 +251,22 @@ const Header: React.FC = () => {
             <p className="text-base sm:text-xm font-normal text-white/40">
               Contact
             </p>
-            <Link
-              href="#"
-              className="text-base sm:text-xm font-medium text-inherit hover:text-primary"
-            >
-              hello@homely.com
-            </Link>
-            <Link
-              href="#"
-              className="text-base sm:text-xm font-medium text-inherit hover:text-primary"
-            >
-              +1-212-456-7890{" "}
-            </Link>
+            {contacts.length > 0 && contacts[0].email && (
+              <Link
+                href={`mailto:${contacts[0].email}`}
+                className="text-base sm:text-xm font-medium text-inherit hover:text-primary"
+              >
+                {contacts[0].email}
+              </Link>
+            )}
+            {contacts.length > 0 && contacts[0].phone && (
+              <Link
+                href={`tel:${contacts[0].phone}`}
+                className="text-base sm:text-xm font-medium text-inherit hover:text-primary"
+              >
+                {contacts[0].phone}
+              </Link>
+            )}
           </div>
         </div>
       </div>

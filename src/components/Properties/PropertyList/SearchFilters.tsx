@@ -33,10 +33,10 @@ const SearchFilters: React.FC<SearchFiltersProps> = ({
   const [filters, setFilters] = useState<FilterState>({
     search: "",
     propertyType: "",
-    priceRange: [0, 1000000],
+    priceRange: [0, 10000000],
     bedrooms: 0,
     bathrooms: 0,
-    areaRange: [0, 1000],
+    areaRange: [0, 10000],
     operation: "",
   });
 
@@ -71,10 +71,10 @@ const SearchFilters: React.FC<SearchFiltersProps> = ({
     const resetFilters: FilterState = {
       search: "",
       propertyType: "",
-      priceRange: [0, 1000000] as [number, number],
+      priceRange: [0, 10000000] as [number, number],
       bedrooms: 0,
       bathrooms: 0,
-      areaRange: [0, 1000] as [number, number],
+      areaRange: [0, 10000] as [number, number],
       operation: "",
     };
     setFilters(resetFilters);
@@ -260,7 +260,7 @@ const SearchFilters: React.FC<SearchFiltersProps> = ({
                 onChange={(e) =>
                   handleFilterChange("priceRange", [
                     filters.priceRange[0],
-                    parseInt(e.target.value) || 1000000,
+                    parseInt(e.target.value) || 10000000,
                   ])
                 }
                 className="flex-1 w-[100px]   px-3 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 text-gray-900 dark:text-white hover:border-gray-300 dark:hover:border-gray-600"
@@ -293,7 +293,7 @@ const SearchFilters: React.FC<SearchFiltersProps> = ({
                 onChange={(e) =>
                   handleFilterChange("areaRange", [
                     filters.areaRange[0],
-                    parseInt(e.target.value) || 1000,
+                    parseInt(e.target.value) || 10000,
                   ])
                 }
                 className="flex-1 w-[100px] px-3 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 text-gray-900 dark:text-white hover:border-gray-300 dark:hover:border-gray-600"

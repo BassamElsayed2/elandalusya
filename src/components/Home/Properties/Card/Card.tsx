@@ -8,15 +8,15 @@ const PropertyCard: React.FC<{ item: PropertyHomes }> = ({ item }) => {
   const locale = useLocale();
   const isArabic = locale === "ar";
 
-  const mainImage = item?.images[0];
+  const mainImage = item?.images?.[0];
 
   return (
     <div>
       <div className="relative rounded-2xl border border-dark/10 dark:border-white/10 group hover:shadow-3xl duration-300 dark:hover:shadow-white/20">
         <div className="overflow-hidden rounded-t-2xl">
           <Link href={`/properties/${item.id}`}>
-            {mainImage && (
-              <div className="relative w-full h-[300px] overflow-hidden rounded-t-2xl">
+            <div className="relative w-full h-[300px] overflow-hidden rounded-t-2xl">
+              {mainImage ? (
                 <Image
                   src={mainImage}
                   alt={item.name_en}
@@ -25,25 +25,18 @@ const PropertyCard: React.FC<{ item: PropertyHomes }> = ({ item }) => {
                   className="w-full h-full object-cover rounded-t-2xl group-hover:brightness-50 group-hover:scale-125 transition duration-300 delay-75"
                   unoptimized={true}
                 />
-              </div>
-            )}
+              ) : (
+                <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center rounded-t-2xl">
+                  <Icon
+                    icon="ph:house-simple"
+                    width={64}
+                    height={64}
+                    className="text-gray-400 dark:text-gray-500"
+                  />
+                </div>
+              )}
+            </div>
           </Link>
-          <div
-            className={`absolute top-6 ${
-              isArabic ? "left-6" : "right-6"
-            } p-4 bg-white rounded-full hidden group-hover:block`}
-          >
-            <Icon
-              icon={
-                isArabic
-                  ? "solar:arrow-left-linear"
-                  : "solar:arrow-right-linear"
-              }
-              width={24}
-              height={24}
-              className="text-black"
-            />
-          </div>
         </div>
         <div className="p-6">
           <div
@@ -58,12 +51,14 @@ const PropertyCard: React.FC<{ item: PropertyHomes }> = ({ item }) => {
                 </h3>
               </Link>
               <p className="text-[13px] font-normal text-black/50 dark:text-white/50">
-                {locale === "ar" ? item.address_ar : item.address_en}
+                {locale === "ar"
+                  ? item.address_ar || "لا يوجد عنوان"
+                  : item.address_en || "No address"}
               </p>
             </div>
             <div>
               <button className="text-[13px] font-normal text-primary px-5 py-2 rounded-full bg-primary/10">
-                {item.price} {locale === "ar" ? "ج.م" : "EG"}
+                {item.price || 0} {locale === "ar" ? "ج.م" : "EG"}
               </button>
             </div>
           </div>
@@ -77,7 +72,7 @@ const PropertyCard: React.FC<{ item: PropertyHomes }> = ({ item }) => {
             >
               <Icon icon={"solar:bed-linear"} width={20} height={20} />
               <p className="text-[13px] mobile:text-[13px] font-normal text-black dark:text-white text-center">
-                {item.bedrooms} {locale === "ar" ? "غرف نوم" : "Bedrooms"}
+                {item.bedrooms || 0} {locale === "ar" ? "غرف نوم" : "Bedrooms"}
               </p>
             </div>
             <div
@@ -89,7 +84,7 @@ const PropertyCard: React.FC<{ item: PropertyHomes }> = ({ item }) => {
             >
               <Icon icon={"solar:bath-linear"} width={20} height={20} />
               <p className="text-[13px] mobile:text-[13px] font-normal text-black dark:text-white text-center">
-                {item.bathrooms} {locale === "ar" ? "حمامات" : "Bathrooms"}
+                {item.bathrooms || 0} {locale === "ar" ? "حمامات" : "Bathrooms"}
               </p>
             </div>
             <div
@@ -105,7 +100,7 @@ const PropertyCard: React.FC<{ item: PropertyHomes }> = ({ item }) => {
                 height={20}
               />
               <p className="text-[13px] mobile:text-[13px] font-normal text-black dark:text-white text-center">
-                {item.area}m<sup>2</sup>
+                {item.area || 0}m<sup>2</sup>
               </p>
             </div>
           </div>

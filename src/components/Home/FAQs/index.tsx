@@ -1,3 +1,4 @@
+"use client";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import {
@@ -7,11 +8,31 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useTranslations, useLocale } from "next-intl";
+import { useEffect, useState } from "react";
+import { getFaqs } from "../Services/apiFaqs";
+import { Faq } from "@/types/faq";
 
 const FAQ: React.FC = () => {
   const t = useTranslations("FAQs");
   const locale = useLocale();
   const isArabic = locale === "ar";
+  const [faqs, setFaqs] = useState<Faq[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchFaqs = async () => {
+      try {
+        const data = await getFaqs();
+        setFaqs(data);
+      } catch (error) {
+        console.error("Error fetching FAQs:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFaqs();
+  }, []);
 
   return (
     <section id="faqs">
@@ -52,25 +73,33 @@ const FAQ: React.FC = () => {
               )}
             </p>
             <div className="my-8">
-              <Accordion
-                type="single"
-                defaultValue="item-1"
-                collapsible
-                className="w-full flex flex-col gap-6"
-              >
-                <AccordionItem value="item-1">
-                  <AccordionTrigger>{t("canIPersonalize")}</AccordionTrigger>
-                  <AccordionContent>{t("discoverADiverse")}</AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-2">
-                  <AccordionTrigger>{t("whereCan")}</AccordionTrigger>
-                  <AccordionContent>{t("discoverADiverse")}</AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-3">
-                  <AccordionTrigger>{t("whatSteps")}</AccordionTrigger>
-                  <AccordionContent>{t("discoverADiverse")}</AccordionContent>
-                </AccordionItem>
-              </Accordion>
+              {loading ? (
+                <div className="flex justify-center items-center py-8">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                </div>
+              ) : faqs.length > 0 ? (
+                <Accordion
+                  type="single"
+                  defaultValue={faqs[0]?.id}
+                  collapsible
+                  className="w-full flex flex-col gap-6"
+                >
+                  {faqs.map((faq, index) => (
+                    <AccordionItem key={faq.id} value={faq.id}>
+                      <AccordionTrigger className="">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              ) : (
+                <div className="text-center py-8 text-gray-500">
+                  لا توجد أسئلة شائعة متاحة حالياً
+                </div>
+              )}
             </div>
           </div>
         </div>

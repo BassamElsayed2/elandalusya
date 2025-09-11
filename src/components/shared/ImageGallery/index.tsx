@@ -37,7 +37,10 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, alt }) => {
         {/* Main large image */}
         <div className="lg:col-span-8 col-span-12">
           {images[0] && (
-            <div className="cursor-pointer" onClick={() => openPopup(0)}>
+            <div
+              className="cursor-pointer relative"
+              onClick={() => openPopup(0)}
+            >
               <Image
                 src={images[0]}
                 alt={`${alt} - Main Image`}
@@ -46,12 +49,20 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, alt }) => {
                 className="rounded-2xl w-full h-64 sm:h-80 lg:h-96 object-cover"
                 unoptimized={true}
               />
+              {/* Mobile overlay for remaining images count */}
+              <div className="lg:hidden absolute top-4 right-4 bg-black bg-opacity-70 text-white px-3 py-2 rounded-full">
+                {images.length > 1 && (
+                  <span className="text-sm font-semibold">
+                    +{images.length - 1}
+                  </span>
+                )}
+              </div>
             </div>
           )}
         </div>
 
         {/* Side images container */}
-        <div className="lg:col-span-4 col-span-12">
+        <div className="lg:col-span-4 hidden lg:block">
           <div className="grid grid-cols-1 gap-4 h-full">
             {/* First side image */}
             {images[1] && (
@@ -113,59 +124,6 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, alt }) => {
             )}
           </div>
         </div>
-      </div>
-
-      {/* Mobile images row */}
-      <div className="lg:hidden grid grid-cols-3 gap-4 mt-4">
-        {images[1] && (
-          <div className="cursor-pointer" onClick={() => openPopup(1)}>
-            <Image
-              src={images[1]}
-              alt={`${alt} - Image 2`}
-              width={400}
-              height={300}
-              className="rounded-2xl w-full h-24 object-cover"
-              unoptimized={true}
-            />
-          </div>
-        )}
-        {images[2] && (
-          <div className="cursor-pointer" onClick={() => openPopup(2)}>
-            <Image
-              src={images[2]}
-              alt={`${alt} - Image 3`}
-              width={400}
-              height={300}
-              className="rounded-2xl w-full h-24 object-cover"
-              unoptimized={true}
-            />
-          </div>
-        )}
-        {images[3] && (
-          <div className="cursor-pointer relative" onClick={() => openPopup(3)}>
-            <Image
-              src={images[3]}
-              alt={`${alt} - Image 4`}
-              width={400}
-              height={300}
-              className="rounded-2xl w-full h-24 object-cover"
-              unoptimized={true}
-            />
-            {images.length > 4 && (
-              <div
-                className="absolute inset-0 bg-black bg-opacity-60 rounded-2xl flex items-center justify-center cursor-pointer"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  openPopup(3);
-                }}
-              >
-                <span className="text-white text-sm font-semibold">
-                  +{remainingImages}
-                </span>
-              </div>
-            )}
-          </div>
-        )}
       </div>
 
       {/* Popup Modal */}

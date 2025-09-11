@@ -3,22 +3,25 @@
 import { useTranslations, useLocale } from "next-intl";
 import ContactModal from "@/components/shared/ContactModal";
 import { useContactModal } from "@/hooks/useContactModal";
+import { useMainRealtor } from "@/hooks/useMainRealtor";
 
 const GetInTouch: React.FC = () => {
   const t = useTranslations("GetInTouch");
   const locale = useLocale();
   const isArabic = locale === "ar";
   const { isOpen, openModal, closeModal } = useContactModal();
+  const { mainRealtor } = useMainRealtor();
 
   return (
     <section>
       <div className="container max-w-8xl mx-auto px-5 2xl:px-0">
         <div className="relative rounded-t-2xl overflow-hidden">
           <video
-            className="w-full absolute top-0 left-0 object-cover -z-10"
+            className="w-full h-full absolute top-0 left-0 object-cover -z-10 min-h-[300px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-[600px]"
             autoPlay
             loop
             muted
+            playsInline
             aria-label="Video background showing luxurious real estate"
           >
             <source
@@ -27,19 +30,21 @@ const GetInTouch: React.FC = () => {
             />
           </video>
 
-          <div className="bg-black/30 lg:py-64 md:py-28 py-10">
+          <div className="bg-black/30 lg:py-64 md:py-28 py-10 relative z-10 min-h-[300px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-[600px] flex items-center">
             <div className="flex flex-col items-center gap-8">
               <h2 className="text-white lg:text-52 md:text-40 text-3xl max-w-3/4 text-center font-medium">
                 {t(
                   "enterARealmWhereExquisiteDesignAndTimelessLuxuryComeTogether"
                 )}
               </h2>
-              <button
-                onClick={openModal}
-                className="bg-white py-4 px-8 rounded-full text-dark hover:bg-dark hover:text-white duration-300"
-              >
-                {t("getInTouch")}
-              </button>
+              {mainRealtor && (
+                <button
+                  onClick={openModal}
+                  className="bg-white py-4 px-8 rounded-full text-dark hover:bg-dark hover:text-white duration-300"
+                >
+                  {t("getInTouch")}
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -66,7 +71,11 @@ const GetInTouch: React.FC = () => {
       </div>
 
       {/* Contact Modal */}
-      <ContactModal isOpen={isOpen} onClose={closeModal} realtorData={null} />
+      <ContactModal
+        isOpen={isOpen}
+        onClose={closeModal}
+        realtorData={mainRealtor}
+      />
     </section>
   );
 };

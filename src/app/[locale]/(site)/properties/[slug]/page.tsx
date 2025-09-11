@@ -28,12 +28,6 @@ export default function Details() {
     enabled: !!slug,
   });
 
-  // Debug: Check if images exist
-  console.log("Property data:", properite);
-  console.log("Images:", properite?.images);
-  console.log("Images length:", properite?.images?.length);
-  console.log("Images type:", typeof properite?.images);
-
   return (
     <section className="!pt-44 pb-20 relative">
       <div className="container mx-auto max-w-8xl px-5 2xl:px-0">

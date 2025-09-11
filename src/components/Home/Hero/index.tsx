@@ -9,6 +9,7 @@ import SearchFilters, {
 } from "@/components/Properties/PropertyList/SearchFilters";
 import ContactModal from "@/components/shared/ContactModal";
 import { useContactModal } from "@/hooks/useContactModal";
+import { useMainRealtor } from "@/hooks/useMainRealtor";
 
 const Hero: React.FC = () => {
   const t = useTranslations("Hero");
@@ -16,6 +17,7 @@ const Hero: React.FC = () => {
   const router = useRouter();
   const isArabic = locale === "ar";
   const { isOpen, openModal, closeModal } = useContactModal();
+  const { mainRealtor, isLoading } = useMainRealtor();
 
   const handleSearch = (filters: FilterState) => {
     // إنشاء query parameters للبحث
@@ -93,12 +95,14 @@ const Hero: React.FC = () => {
               {t("heroTitle")}
             </h1>
             <div className="flex flex-col xs:flex-row justify-center md:justify-start gap-4">
-              <button
-                onClick={openModal}
-                className="herolink px-8 py-4 border border-white dark:border-dark bg-white dark:bg-dark text-dark dark:text-white duration-300 dark:hover:text-dark hover:bg-transparent hover:text-white text-base font-semibold rounded-full hover:cursor-pointer"
-              >
-                {t("getInTouch")}
-              </button>
+              {mainRealtor && (
+                <button
+                  onClick={openModal}
+                  className="herolink px-8 py-4 border border-white dark:border-dark bg-white dark:bg-dark text-dark dark:text-white duration-300 dark:hover:text-dark hover:bg-transparent hover:text-white text-base font-semibold rounded-full hover:cursor-pointer"
+                >
+                  {t("getInTouch")}
+                </button>
+              )}
               <Link
                 href="/properties"
                 className="herolink2 px-8 py-4 border border-white dark:border-dark bg-transparent text-white dark:text-dark hover:bg-white dark:hover:bg-dark dark:hover:text-white hover:text-dark duration-300 text-base font-semibold rounded-full hover:cursor-pointer"
@@ -202,7 +206,11 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Contact Modal */}
-      <ContactModal isOpen={isOpen} onClose={closeModal} realtorData={null} />
+      <ContactModal
+        isOpen={isOpen}
+        onClose={closeModal}
+        realtorData={mainRealtor}
+      />
     </section>
   );
 };

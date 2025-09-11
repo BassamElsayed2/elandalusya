@@ -21,10 +21,10 @@ const PropertiesListing: React.FC = () => {
   const [filters, setFilters] = useState<FilterState>({
     search: "",
     propertyType: "",
-    priceRange: [0, 1000000],
+    priceRange: [0, 10000000], // زيادة الحد الأقصى للسعر
     bedrooms: 0,
     bathrooms: 0,
-    areaRange: [0, 1000],
+    areaRange: [0, 10000], // زيادة الحد الأقصى للمساحة
     operation: "",
   });
 
@@ -35,13 +35,13 @@ const PropertiesListing: React.FC = () => {
       propertyType: searchParams.get("propertyType") || "",
       priceRange: [
         parseInt(searchParams.get("minPrice") || "0"),
-        parseInt(searchParams.get("maxPrice") || "1000000"),
+        parseInt(searchParams.get("maxPrice") || "10000000"),
       ],
       bedrooms: parseInt(searchParams.get("bedrooms") || "0"),
       bathrooms: parseInt(searchParams.get("bathrooms") || "0"),
       areaRange: [
         parseInt(searchParams.get("minArea") || "0"),
-        parseInt(searchParams.get("maxArea") || "1000"),
+        parseInt(searchParams.get("maxArea") || "10000"),
       ],
       operation: searchParams.get("operation") || "",
     };
@@ -57,10 +57,10 @@ const PropertiesListing: React.FC = () => {
       // Search filter
       if (filters.search) {
         const searchLower = filters.search.toLowerCase();
-        const nameEn = property.name_en.toLowerCase();
-        const nameAr = property.name_ar.toLowerCase();
-        const addressEn = property.address_en.toLowerCase();
-        const addressAr = property.address_ar.toLowerCase();
+        const nameEn = (property.name_en || "").toLowerCase();
+        const nameAr = (property.name_ar || "").toLowerCase();
+        const addressEn = (property.address_en || "").toLowerCase();
+        const addressAr = (property.address_ar || "").toLowerCase();
 
         if (
           !nameEn.includes(searchLower) &&
@@ -73,37 +73,47 @@ const PropertiesListing: React.FC = () => {
       }
 
       // Property type filter
-      if (filters.propertyType && property.type !== filters.propertyType) {
+      if (
+        filters.propertyType &&
+        (property.type || "") !== filters.propertyType
+      ) {
         return false;
       }
 
       // Operation filter
-      if (filters.operation && property.operation !== filters.operation) {
+      if (
+        filters.operation &&
+        (property.operation || "") !== filters.operation
+      ) {
         return false;
       }
 
       // Bedrooms filter
-      if (filters.bedrooms > 0 && property.bedrooms < filters.bedrooms) {
+      const propertyBedrooms = property.bedrooms || 0;
+      if (filters.bedrooms > 0 && propertyBedrooms < filters.bedrooms) {
         return false;
       }
 
       // Bathrooms filter
-      if (filters.bathrooms > 0 && property.bathrooms < filters.bathrooms) {
+      const propertyBathrooms = property.bathrooms || 0;
+      if (filters.bathrooms > 0 && propertyBathrooms < filters.bathrooms) {
         return false;
       }
 
       // Price range filter
+      const propertyPrice = property.price || 0;
       if (
-        property.price < filters.priceRange[0] ||
-        property.price > filters.priceRange[1]
+        propertyPrice < filters.priceRange[0] ||
+        propertyPrice > filters.priceRange[1]
       ) {
         return false;
       }
 
       // Area range filter
+      const propertyArea = property.area || 0;
       if (
-        property.area < filters.areaRange[0] ||
-        property.area > filters.areaRange[1]
+        propertyArea < filters.areaRange[0] ||
+        propertyArea > filters.areaRange[1]
       ) {
         return false;
       }
@@ -120,10 +130,10 @@ const PropertiesListing: React.FC = () => {
     setFilters({
       search: "",
       propertyType: "",
-      priceRange: [0, 1000000],
+      priceRange: [0, 10000000],
       bedrooms: 0,
       bathrooms: 0,
-      areaRange: [0, 1000],
+      areaRange: [0, 10000],
       operation: "",
     });
   };
