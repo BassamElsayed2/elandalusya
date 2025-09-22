@@ -2,7 +2,7 @@ import Signin from "@/components/Auth/SignIn";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sign In | الاندلوسية للعقارات",
+  title: "Sign In | الأندلسية للعقارات",
 };
 
 const SigninPage = () => {

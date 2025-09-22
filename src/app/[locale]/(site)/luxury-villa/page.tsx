@@ -3,7 +3,7 @@ import HeroSub from "@/components/shared/HeroSub";
 import React from "react";
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Property List | الاندلوسية للعقارات",
+  title: "Property List | الأندلسية للعقارات",
 };
 
 const page = () => {

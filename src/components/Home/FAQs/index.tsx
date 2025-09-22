@@ -84,7 +84,7 @@ const FAQ: React.FC = () => {
                   collapsible
                   className="w-full flex flex-col gap-6"
                 >
-                  {faqs.map((faq, index) => (
+                  {faqs.map((faq) => (
                     <AccordionItem key={faq.id} value={faq.id}>
                       <AccordionTrigger className="">
                         {faq.question}

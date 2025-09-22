@@ -172,7 +172,7 @@ const Footer = () => {
           }`}
         >
           <p className="text-white/40 text-sm ">
-            ©2025 الاندلوسية للعقارات -{" "}
+            ©2025 الأندلسية للعقارات -{" "}
             <Link
               href="https://ens.eg//"
               className="hover:text-primary"

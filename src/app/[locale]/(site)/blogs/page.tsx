@@ -3,7 +3,7 @@ import HeroSub from "@/components/shared/HeroSub";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog Grids | الاندلوسية للعقارات ",
+  title: "Blog Grids | الأندلسية للعقارات ",
 };
 
 const Blog = () => {

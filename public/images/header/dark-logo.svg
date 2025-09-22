@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="40" fill="none">
   <path fill="#172023" fill-rule="evenodd" d="M19.937 6.845a.125.125 0 0 1 .126 0l13.658 7.947a.125.125 0 0 1 .062.108v18.99a.125.125 0 0 1-.125.124H21.25V22a3.875 3.875 0 0 0-3.875-3.875H6.217V14.9c0-.044.024-.085.062-.108l13.658-7.947Zm2.012-3.241a3.875 3.875 0 0 0-3.898 0L4.393 11.55a3.875 3.875 0 0 0-1.926 3.35V20c0 .48.184.94.513 1.289l15.033 15.889c.354.374.847.586 1.362.586h14.283a3.875 3.875 0 0 0 3.875-3.875V14.9c0-1.38-.734-2.655-1.926-3.35L21.949 3.605Z" clip-rule="evenodd"/>
-  <text x="45" y="16" fill="#172023" font-family="Arial, sans-serif" font-size="12" font-weight="bold">الاندلوسية</text>
+  <text x="45" y="16" fill="#172023" font-family="Arial, sans-serif" font-size="12" font-weight="bold">الأندلسية</text>
   <text x="45" y="32" fill="#172023" font-family="Arial, sans-serif" font-size="10" opacity="0.8">للعقارات</text>
 </svg>

@@ -13,7 +13,7 @@ export const PackageStructure = () => {
       <div className="rounded-2xl p-6 pt-3 border border-black/10 dark:border-white/20 mt-6">
         <div className="flex items-center gap-4">
           <h5 className="text-base font-medium mt-3 mb-1">
-            الاندلوسية للعقارات Tailwind Nextjs Templates
+            الأندلسية للعقارات Tailwind Nextjs Templates
           </h5>
         </div>
         <ul className="ps-0 md:ps-5 list-unstyled">

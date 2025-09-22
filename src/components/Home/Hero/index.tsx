@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
   const router = useRouter();
   const isArabic = locale === "ar";
   const { isOpen, openModal, closeModal } = useContactModal();
-  const { mainRealtor, isLoading } = useMainRealtor();
+  const { mainRealtor } = useMainRealtor();
 
   const handleSearch = (filters: FilterState) => {
     // إنشاء query parameters للبحث

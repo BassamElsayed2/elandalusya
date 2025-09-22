@@ -77,7 +77,7 @@ export const Introduction = () => {
         </div>
         <div className="mt-5">
           <p className="text-base font-medium text-midnight_text dark:text-white dark:text-opacity-50">
-            الاندلوسية للعقارات Tailwind NextJs Template is built with
+            الأندلسية للعقارات Tailwind NextJs Template is built with
             Tailwindcss and Nextjs.
           </p>
           <p className="text-base font-medium text-midnight_text dark:text-white dark:text-opacity-50">
