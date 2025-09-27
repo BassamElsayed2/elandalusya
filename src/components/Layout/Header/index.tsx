@@ -150,7 +150,7 @@ const Header: React.FC = () => {
               }`}
             >
               <Link
-                href="#"
+                href={`tel:${contacts[0]?.phone || ""}`}
                 className={`text-base text-inherit flex items-center gap-2 ${
                   isHomepage
                     ? sticky
@@ -160,7 +160,9 @@ const Header: React.FC = () => {
                 }`}
               >
                 <Icon icon={"ph:phone-bold"} width={24} height={24} />
-                01553841793
+                <span className="text-base sm:text-xm font-medium text-inherit hover:text-primary">
+                  {contacts[0]?.phone || ""}
+                </span>
               </Link>
             </div>
             <div>
@@ -235,7 +237,6 @@ const Header: React.FC = () => {
                     onClick={() => setNavbarOpen(false)}
                   />
                 ))}
-                
               </ul>
             </nav>
           </div>

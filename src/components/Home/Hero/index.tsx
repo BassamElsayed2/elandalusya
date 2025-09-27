@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import SearchFilters, {
   FilterState,
 } from "@/components/Properties/PropertyList/SearchFilters";
@@ -18,6 +19,36 @@ const Hero: React.FC = () => {
   const isArabic = locale === "ar";
   const { isOpen, openModal, closeModal } = useContactModal();
   const { mainRealtor } = useMainRealtor();
+
+  // Video handling for Safari compatibility
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoError, setVideoError] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Safari-specific video handling
+    const handleCanPlay = () => {
+      video.play().catch((error) => {
+        console.log("Video autoplay failed:", error);
+        setVideoError(true);
+      });
+    };
+
+    const handleError = () => {
+      console.log("Video failed to load");
+      setVideoError(true);
+    };
+
+    video.addEventListener("canplay", handleCanPlay);
+    video.addEventListener("error", handleError);
+
+    return () => {
+      video.removeEventListener("canplay", handleCanPlay);
+      video.removeEventListener("error", handleError);
+    };
+  }, []);
 
   const handleSearch = (filters: FilterState) => {
     // إنشاء query parameters للبحث
@@ -68,19 +99,34 @@ const Hero: React.FC = () => {
       <div className="relative overflow-hidden bg-gradient-to-b from-skyblue via-lightskyblue dark:via-[#4298b0] to-white/10 dark:to-black/10">
         {/* 🎥 Background Video */}
         <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster="/images/hero/poster.jpg" // صورة fallback لو الفيديو مش اشتغل
-            className="w-full h-full object-cover"
-          >
-            <source src="/videos/real-estate.mp4" type="video/mp4" />
-            <source src="/videos/real-estate.webm" type="video/webm" />
-            Your browser does not support the video tag.
-          </video>
+          {!videoError ? (
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/images/hero/heroBanner.jpg"
+              webkit-playsinline="true"
+              x-webkit-airplay="allow"
+              className="w-full h-full object-cover"
+            >
+              <source src="/videos/real-estate.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            // Fallback image when video fails
+            <div className="w-full h-full bg-gradient-to-b from-skyblue via-lightskyblue dark:via-[#4298b0] to-white/10 dark:to-black/10">
+              <Image
+                src="/images/hero/heroBanner.jpg"
+                alt="Hero background"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          )}
         </div>
 
         {/* 🌟 Foreground Content */}
